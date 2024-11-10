@@ -12,27 +12,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createProduct = exports.getProducts = void 0;
-const product_1 = __importDefault(require("../models/product"));
-const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.createSaleProduct = exports.getSaleProducts = void 0;
+const saleProduct_1 = __importDefault(require("../models/saleProduct"));
+const getSaleProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const products = yield product_1.default.find();
+        const products = yield saleProduct_1.default.find();
         res.json(products);
     }
     catch (error) {
         res.status(500).json({ message: "Error fetching products" });
     }
 });
-exports.getProducts = getProducts;
-const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.getSaleProducts = getSaleProducts;
+const createSaleProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const newProduct = new product_1.default(req.body);
+        const newProduct = new saleProduct_1.default(req.body);
         const product = yield newProduct.save();
         console.log("product created");
-        res.status(201).json("Product created");
+        res.status(201).json("Sale Product created");
     }
     catch (error) {
         res.status(500).json({ message: "Error creating product" });
     }
 });
-exports.createProduct = createProduct;
+exports.createSaleProduct = createSaleProduct;
