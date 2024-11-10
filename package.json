@@ -2,7 +2,7 @@
   "name": "ecommerce_backend",
   "version": "1.0.0",
   "description": "MY first ecommerce platform using react native and nodejs",
-  "main": "index.js",
+  "main": "server.ts",
  "scripts": {
   "start": "nodemon dist/server.js",
   "build": "tsc",
